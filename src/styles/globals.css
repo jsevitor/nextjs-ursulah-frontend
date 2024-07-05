@@ -1,0 +1,33 @@
+:root {
+  /* Colors */
+  --primary: #4510a3;
+  --secondary: #0cd2ab;
+  --neutral: #f9f9f9;
+  --lightDark: #707070;
+  --dark: #323232;
+  --whithe: #ffffff;
+
+  --gradient: linear-gradient(
+    128deg,
+    rgba(69, 16, 163, 1) 0%,
+    rgba(12, 210, 171, 1) 100%
+  );
+
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+  color: var(--dark);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
