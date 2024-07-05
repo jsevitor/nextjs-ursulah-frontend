@@ -9,6 +9,7 @@
 
 .main_container {
   max-width: 1240px;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -89,4 +90,61 @@
   background-color: #4510a3;
   color: #0cd2ab;
   scale: 1.02;
+}
+
+@media (max-width: 768px) {
+  .main_container {
+    width: 90%;
+    align-items: center;
+    /* justify-content: flex-start; */
+    gap: 3rem;
+  }
+
+  .title {
+    width: 100%;
+    margin-top: 8rem;
+    text-align: center;
+  }
+
+  .title h1 {
+    font-size: 2.35rem;
+  }
+
+  .title p {
+    width: 100%;
+  }
+
+  .cards {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main_container {
+    width: 95%;
+    align-items: center;
+    /* justify-content: flex-start; */
+    gap: 3rem;
+  }
+
+  .title {
+    width: 100%;
+    margin-top: 8rem;
+    text-align: center;
+  }
+
+  .title p {
+    width: 100%;
+    padding: 0 4rem;
+  }
+
+  .cards {
+    width: 90%;
+    /* flex-direction: column; */
+    justify-content: center;
+    gap: 2rem;
+  }
 }

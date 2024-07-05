@@ -1,5 +1,5 @@
 .header {
-  width: 100%;
+  width: 90%;
   max-width: 1240px;
   height: 4rem;
   display: flex;
@@ -14,11 +14,25 @@
   box-shadow: 5px 5px 10px -2px rgba(0, 0, 0, 0.55);
 }
 
+.logo {
+  flex: 1;
+}
+
+.cta_btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .nav_menu {
   display: flex;
   align-items: center;
   font-weight: bold;
   gap: 4rem;
+}
+
+.menu_icon {
+  display: none;
 }
 
 .menu_items {
@@ -53,4 +67,94 @@
   cursor: pointer;
   background-color: #0cd2ab;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .logo_img {
+    width: 40px;
+  }
+
+  .nav_menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .cta_btn {
+    width: 150px;
+    order: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu_icon {
+    order: 2;
+    display: block;
+  }
+
+  .menu_items {
+    width: 100%;
+    gap: 0.5rem;
+    flex-direction: column;
+    background-color: #fff;
+    min-width: 12rem;
+    max-width: 1000px;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    display: none;
+  }
+
+  .menu_items.open {
+    display: flex;
+  }
+
+  .menu_items a {
+    color: #323232;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.4s;
+  }
+
+  .menu_items li {
+    padding: 0.5rem 2rem;
+  }
+
+  .menu_items li:hover {
+    background-color: #0cd2ab;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .menu_items a:hover {
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .menu_items li:first-child:hover {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .menu_items li:last-child:hover {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .menu_icon {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    width: 90%;
+  }
 }
