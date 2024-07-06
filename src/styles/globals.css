@@ -24,6 +24,12 @@
   color: var(--dark);
 }
 
+body,
+html {
+  height: 100%;
+  background: var(--gradient);
+}
+
 ul {
   list-style: none;
 }
