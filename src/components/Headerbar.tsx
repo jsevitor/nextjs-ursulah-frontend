@@ -46,13 +46,24 @@ const Headerbar = () => {
           </Link>
         </div>
         <div className={styles.menu_icon}>
-          <Image
-            src="/burger-menu.svg"
-            width={24}
-            height={24}
-            alt="Menu icon"
-            onClick={toggleMenu}
-          />
+          {!menuOpen && (
+            <Image
+              src="/burger-menu.svg"
+              width={24}
+              height={24}
+              alt="Menu icon"
+              onClick={toggleMenu}
+            />
+          )}
+          {menuOpen && (
+            <Image
+              src="/x.svg"
+              width={24}
+              height={24}
+              alt="Menu icon"
+              onClick={toggleMenu}
+            />
+          )}
         </div>
       </nav>
     </header>
