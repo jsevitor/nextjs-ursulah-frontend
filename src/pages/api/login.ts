@@ -16,17 +16,26 @@ type User = {
 const filePath = path.join(process.cwd(), 'data', 'users.json');
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  console.log('Request method:', req.method);
+  console.log('Request body:', req.body);
+
   if (req.method === 'POST') {
-    const { email, senha }: { email: string; senha: string } = req.body;
+    const { email, password }: { email: string; password: string } = req.body;
 
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
+        console.error('Error reading file:', err);
         res.status(500).json({ message: 'Erro ao ler o arquivo' });
         return;
       }
 
+      console.log('Data from file:', data);
+
       const users: User[] = JSON.parse(data || '[]');
-      const user = users.find((u) => u.email === email && u.senha === senha);
+      console.log('Parsed users:', users);
+
+      const user = users.find((u) => u.email === email && u.senha === password);
+      console.log('User found:', user);
 
       if (user) {
         res.status(200).json({ message: 'Login bem-sucedido' });
