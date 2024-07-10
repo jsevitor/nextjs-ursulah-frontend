@@ -1,0 +1,85 @@
+.container {
+    height: 100vh;
+    background: #FFFFFF;
+  }
+  
+  .main_container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
+  
+  .search_section {
+    text-align: center;
+    margin-top: 2rem;
+    position: absolute;
+    width: 624px;
+    right: 293px;
+    top: 105px;
+  }
+  
+  .search_section h2 {
+    font-size: 2rem;
+  }
+  
+  .search_section p {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .search_input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #F7F7F7;
+    border-radius: 31px;
+    width: 60%;
+  }
+  
+  .menu_lateral {
+    position: absolute;
+    width: 306px;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: #F3F3F3;
+    border: 1px solid #C8C8C8;
+  }
+  
+  .menu_item {
+    padding: 20px;
+    color: #333333;
+  }
+  
+  .menu_item.active {
+    background: #4510A3;
+    color: #FFFFFF;
+  }
+  
+  .menu_logo {
+    position: absolute;
+    width: 103px;
+    height: 49px;
+    left: 69px;
+    top: 67px;
+    background: url('/logo.svg'); /* Ajuste a URL conforme necessário */
+  }
+  
+  .centro_bg {
+    position: absolute;
+    width: 776px;
+    height: 480px;
+    left: 417px;
+    top: 361px;
+    text-align: center;
+  }
+  
+  .centro_bg h2 {
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+  }
+  

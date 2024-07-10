@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 import styles from "@/styles/Login.module.css";
 
@@ -16,7 +17,8 @@ const Login: React.FC = () => {
   };
 
   const [formData, setFormData] = useState<FormData>(initialFormData);
-
+  const router = useRouter();
+  
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -25,9 +27,26 @@ const Login: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+  
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+  
+    const result = await response.json();
+    console.log('Result:', result);
+  
+    if (response.ok) {
+      router.push('/dashboard');  // Redirecionar para o dashboard após o login
+    } else {
+      alert('Erro ao fazer login: ' + result.message);
+    }
+  
     setFormData(initialFormData);
   };
 

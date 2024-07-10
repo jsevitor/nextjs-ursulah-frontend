@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from 'next/router';
 import Image from "next/image";
 import Link from "next/link";
-
 import styles from "@/styles/CreateAccount.module.css";
 
 interface FormData {
@@ -20,6 +20,7 @@ const CreateAccount: React.FC = () => {
   };
 
   const [formData, setFormData] = useState<FormData>(initialFormData);
+  const router = useRouter();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,9 +30,27 @@ const CreateAccount: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    console.log('Result:', result);
+
+    if (response.ok) {
+      router.push('/');  // Redirecionar para o dashboard após o cadastro
+    } else {
+      // Tratar o erro
+      alert('Erro ao cadastrar usuário: ' + result.message);
+    }
+
     setFormData(initialFormData);
   };
 

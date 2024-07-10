@@ -9,7 +9,6 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <title>Granto US</title>
       </Head>
       <body>
         <Main />
